@@ -1,0 +1,25 @@
+
+<html>
+<body>
+
+<input type="number" id="num" placeholder="Enter number">
+<button onclick="Factors()">show</button>
+<p id="result"></p>
+
+<script>
+function Factors() {
+    let n=document.getElementById("num").value;
+    let s= "";
+
+    for (let i = 1; i <= n; i++) {
+        if (n%i== 0) {
+            s+= i + " ";
+        }
+    }
+
+    document.getElementById("result").innerHTML = " " + s;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<body>
+
+<input type="text" id="t1" placeholder="Enter amount">
+<input type="button" value="Convert" onclick="convert()">
+
+<p id="result"></p>
+
+<script>
+function convert()
+{
+    let a = parseFloat(document.getElementById("t1").value);
+
+    let rate=94.25;  
+    let inr=a* rate;
+
+    document.getElementById("result").innerHTML = "INR = " + inr;
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<body>
+<h2>Regular Expression Validation</h2>
+Password<input type="text" id="t1">
+<input type="button" value="ok" onclick="check()">
+
+<script>
+function check()
+{
+    let password = /^[A-Za-z0-9]{6,}$/;
+    let a = document.getElementById("t1").value;
+
+    if(password.test(a)){
+        alert("valid");
+    }else{
+        alert("invalid");
+    }
+}
+</script>
+
+</body>
+</html>

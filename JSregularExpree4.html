@@ -1,0 +1,84 @@
+<html>
+<body>
+<h2>Form Check</h2>
+
+Roll No:<input type="text" id="roll"><span id="m1"></span><br><br>
+Age:<input type="text" id="age"><span id="m2"></span><br><br>
+Mobile:<input type="text" id="mobile"><span id="m3"></span><br><br>
+Email:<input type="text" id="email"><span id="m4"></span><br><br>
+Password:<input type="password" id="pass"><span id="m5"></span><br><br>
+Confirm Password:<input type="password" id="confirmpass"><span id="m6"></span><br><br>
+
+<button onclick="check()">Ok</button>
+
+<script>
+function check()
+{
+    let roll = document.getElementById("roll").value;
+    let age = document.getElementById("age").value;
+    let mobile = document.getElementById("mobile").value;
+    let email = document.getElementById("email").value;
+    let pass = document.getElementById("pass").value;
+    let confirmpass = document.getElementById("confirmpass").value;
+
+    let emailre = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let passre = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    // Roll No
+    if(isNaN(roll) || roll==""){
+        document.getElementById("m1").innerHTML="Invalid";
+        document.getElementById("m1").style.color="red";
+    } else {
+        document.getElementById("m1").innerHTML="Valid";
+        document.getElementById("m1").style.color="green";
+    }
+
+    // Age
+    if(isNaN(age) || age<1 || age>100){
+        document.getElementById("m2").innerHTML="Invalid";
+        document.getElementById("m2").style.color="red";
+    } else {
+        document.getElementById("m2").innerHTML="Valid";
+        document.getElementById("m2").style.color="green";
+    }
+
+    // Mobile
+    if(isNaN(mobile) || mobile.length!=10){
+        document.getElementById("m3").innerHTML="Invalid";
+        document.getElementById("m3").style.color="red";
+    } else {
+        document.getElementById("m3").innerHTML="Valid";
+        document.getElementById("m3").style.color="green";
+    }
+
+    // Email
+    if(!emailre.test(email)){
+        document.getElementById("m4").innerHTML="Invalid";
+        document.getElementById("m4").style.color="red";
+    } else {
+        document.getElementById("m4").innerHTML="Valid";
+        document.getElementById("m4").style.color="green";
+    }
+
+    // Password
+    if(!passre.test(pass)){
+        document.getElementById("m5").innerHTML="Invalid";
+        document.getElementById("m5").style.color="red";
+    } else {
+        document.getElementById("m5").innerHTML="Valid";
+        document.getElementById("m5").style.color="green";
+    }
+
+    // Confirm Password
+    if(pass !== confirmpass || pass==""){
+        document.getElementById("m6").innerHTML="Invalid";
+        document.getElementById("m6").style.color="red";
+    } else {
+        document.getElementById("m6").innerHTML="Valid";
+        document.getElementById("m6").style.color="green";
+    }
+}
+</script>
+
+</body>
+</html>

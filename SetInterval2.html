@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <p id="A"></p>
+    </body>
+
+    <script>
+        let p, t=10;
+
+       p=setInterval(function(){
+        document.getElementById("A").innerHTML=t;
+            t--;
+            if(t==-1)
+           {
+            clearInterval(-p);
+           }
+            
+        } ,1000);
+    </script>
+</html>

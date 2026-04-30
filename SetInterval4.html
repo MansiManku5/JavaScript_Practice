@@ -1,0 +1,20 @@
+<html>
+  <body>
+    <p id="x"></p>
+
+    <script>
+      let h = 29, m = 59;
+      let p = setInterval(function () {
+        document.getElementById("x").innerHTML = "Time Left: " + h + ":" + m;
+        m--;
+        if (m == -1) {
+          h--;
+          m = 59;
+        }
+        if (h == -1) {
+          clearInterval(p);
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>

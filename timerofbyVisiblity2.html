@@ -1,0 +1,43 @@
+<html>
+  <body>
+
+    <p id="x"></p>
+    <div id="a">
+      <button>1</button>
+      <button>2</button>
+       <button>3</button>
+        <button>4</button>
+         <button>5</button>
+          <button>6</button>
+           <button>7</button>
+            <button>8</button>
+             <button>9</button>
+              <button>10</button>
+    </div>
+
+
+    <script>
+      let h=0, m=9;
+      let p = setInterval(function(){
+        document.getElementById("x").innerHTML ="Time Left: " +h+ ":" +m;
+        m--;
+        if (m == -1) {
+          h--;
+          m = 9;
+        }
+
+
+        if (h == -1) {
+          clearInterval(p);
+          document.getElementById("a").style.visibility = "hidden";
+
+        }
+
+      }, 1000);
+
+    </script>
+
+  </body>
+  
+  </style>
+</html>

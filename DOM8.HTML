@@ -1,0 +1,61 @@
+<html>
+<body>
+
+Age <input type="text" id="text1"><span id="m1"></span>
+<br><br>
+
+Mobile No. <input type="text" id="text2"><span id="m2"></span>
+<br><br>
+<input type="button" id="b1" value="OK">
+
+<script>
+
+let a1 = document.querySelector("#text1");
+let a2 = document.querySelector("#text2");
+
+let a3 = document.querySelector("#b1");
+
+let a4 = document.querySelector("#m1");
+let a5 = document.querySelector("#m2");
+
+a3.addEventListener("click", function(){
+    if(isNaN(a1.value) == true)
+    {
+        a4.innerHTML = "Please enter only number";
+    }
+
+    else if(a1.value < 12 || a1.value > 90)
+    {
+        a4.innerHTML = "Enter age between 12 to 90";
+    }
+
+    else
+    {
+        a4.innerHTML = "Valid";
+         document.getElementById("m1").style.color="red";
+    }
+
+
+  
+
+    if(isNaN(a2.value) == true)
+    {
+        a5.innerHTML = "Please enter only number";
+    }
+
+    else if(a2.value.length != 10)
+    {
+        a5.innerHTML = "Please enter 10 digit mobile number";
+    }
+
+    else
+    {
+        a5.innerHTML = "Valid" ;
+          document.getElementById("m2").style.color="red";
+    }
+});
+
+</script>
+
+</body>
+</html>

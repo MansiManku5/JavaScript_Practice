@@ -1,0 +1,28 @@
+<html>
+<body>
+
+    <p class="a">10</p>
+    <p class="a">20</p>
+    <p class="a">30</p>
+    <p class="a">40</p>
+    <button id="b1">OK</button>
+</body>
+<script>
+
+let z = document.querySelectorAll(".a");
+let a = document.querySelector("#b1");
+let s=0;
+
+a.addEventListener("click", function(){
+
+    for(let i=0; i<z.length; i++)
+    {
+        s = s + parseInt(z[i].innerHTML);
+    }
+
+    alert(s);
+
+});
+
+</script>
+</html>

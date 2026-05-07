@@ -1,0 +1,143 @@
+<html>
+    <head>
+         <title>Age Calculator</title>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="calculator">
+                <h1>JavaScript <br><span> Age calculator</span></h1>
+                <div class="input-box">
+                    <input type="date" id="date">
+                    <button onclick="CalculateAge()">Calculator</button>
+                </div>
+                <p id="result"></p>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        let userInput = document.getElementById("date");
+        userInput.max = new Data().tpISOString().split("T")[0];
+        let result =document.getElementById("result");
+
+        function calculateAge(){
+         let birthDate = new Data(userInput);
+
+         let d1 = birthDate.getData();
+           let m1 = birthDate.getMonth() +1;
+             let y1 = birthDate.getFullYear();
+
+             let today = new Data();
+
+              let d2 = birthDate.getData();
+               let m2 = birthDate.getMonth() +1;
+                let y2 = birthDate.getFullYear();
+
+                let d3, m3, y3;
+
+                y3 = y2 - y1;
+
+                if(m2 >=m1){
+                    m3=m2-m1;
+                }else{
+                    y3--;
+                    m3 = 12 +m2-m1;
+
+                }
+                if (d2>=d1){
+                    d3= d2-d1;
+
+                }
+            else{
+              m3--;
+              d3= getDaysInMonth(y1, m1)+ d2-d1;
+            }
+
+            if(m3<0){
+                m3 =11;
+                y3--;
+            }
+          result.innerHTML='you are <span>${y3} years, <span>${m3} month and ${d3}<span> days old';
+        }
+
+        function getDaysInMonth(year, month){
+            return new Data(year, month, 0).getData();
+        }
+    </script>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+            scrollbar-width: none;
+        }
+        .container{
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #4203a9, #90bafc);
+            color: #fff;
+            padding: 10px;
+        }
+        .calculator{
+            width: 100%;
+            max-width: 600px;
+            margin-left: 10%;
+            margin-top: 10%;
+        }
+         .calculator h1{
+              font-size: 60px;
+         }
+          .calculator h1 span{
+             color: #fff766;
+         }
+        .input-box{
+            margin: 40px 0;
+            padding: 35px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+        }
+        .input-box input{
+            flex: 1;
+            margin-right: 20px;
+            padding: 14px 20px;
+            border: 0;
+            outline: 0;
+            font-size: 18px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .input-box button{
+            background: #ffff76;
+             border: 0;
+            outline: 0;
+            padding: 15px 30px;
+            border-radius: 5px;
+            font-weight: 500;
+            color: #333;
+            cursor: pointer;
+        }
+        .input-box input::-webkit calendar-picker-indicater{
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            left: 0;
+            position: absolute;
+            background-position: (calc(100%-10px));
+            background-size: 30px;
+            cursor: pointer;
+            height: auto;
+        }
+        #result span{
+            color: #ffff76;
+        }
+        #result{ 
+            font-size: 20px;
+        }
+    </style>
+</html>
